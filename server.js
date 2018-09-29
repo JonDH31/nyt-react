@@ -6,7 +6,9 @@ const bodyParser = require("body-parser");
 const path = require("path");
 
 // Set up a default port, configure mongoose, configure our middleware
-const PORT = process.env.PORT || 3000;
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
 mongoose.Promise = bluebird;
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
